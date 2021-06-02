@@ -7,13 +7,15 @@ Django>=3.0,<4.0
 psycopg2-binary>=2.8
 ```
 
-\# syntax=docker/dockerfile:1 \
+```dockerfile
+# syntax=docker/dockerfile:1 \
 FROM python:3 \
 ENV PYTHONUNBUFFERED=1\
 WORKDIR /code\
 COPY requirements.txt /code/\
 RUN pip install -r requirements.txt\
 COPY . /code/
+```
 
 ## Criar um docker-compose.yml
 Descreve os serviços que serão usados e suas imagens e configurações. Aqui configuramos o "db" com uma imagem do Postgres, e o serviço web para executar o comando do Django.
