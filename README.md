@@ -8,13 +8,13 @@ psycopg2-binary>=2.8
 ```
 
 ```dockerfile
-# syntax=docker/dockerfile:1 \
-FROM python:3 \
-ENV PYTHONUNBUFFERED=1\
-WORKDIR /code\
-COPY requirements.txt /code/\
-RUN pip install -r requirements.txt\
-COPY . /code/
+# syntax=docker/dockerfile:1 
+FROM python:3 
+ENV PYTHONUNBUFFERED=1
+WORKDIR /code
+COPY requirements.txt /code/
+RUN pip install -r requirements.txt
+COPY . /code
 ```
 
 ## Criar um docker-compose.yml
