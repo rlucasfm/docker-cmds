@@ -31,6 +31,9 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5433:5432'
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -38,6 +41,16 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "richardlucasfm@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "16543:80"
     depends_on:
       - db
 ```
