@@ -37,8 +37,6 @@ services:
         volumes:
             - ./webapp:/webapp
             - ./site.conf:/etc/nginx/conf.d/default.conf
-        # links:
-        #     - php
         depends_on:
             - db     
             - php        
