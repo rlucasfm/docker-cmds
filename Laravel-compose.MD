@@ -54,3 +54,13 @@ sudo chmod -R ug+w storage
 php artisan cache:clear
 composer dump-autoload
 ```
+
+## Instalação das extensões para o PostgreSQL
+Rodar os comandos na imagem do PHP (CLI ou montagem da imagem):
+```sh
+-ex \
+  && apk --no-cache add \
+    postgresql-dev
+
+docker-php-ext-install pdo pdo_pgsql
+```
