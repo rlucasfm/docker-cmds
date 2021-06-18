@@ -17,11 +17,10 @@ services:
         ports:
         - '5433:5432'
 
-    php:
-        image: php:8.0.2-fpm-alpine
-        # build: ./php-docker
+    php:        
+        build: ./php-docker        
         volumes: 
-            - ./webapp:/webapp
+           - ./webapp:/webapp
 
     pgadmin:
         image: dpage/pgadmin4
@@ -42,7 +41,18 @@ services:
             - ./site.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - db     
-            - php        
+            - php           
+```
+
+## Dockerfile para o PHP
+```Dockerfile
+FROM php:8.0.2-fpm-alpine
+
+RUN mkdir -p /webapp/storage
+
+RUN chown -R $(whoami):www-data /webapp/storage && chmod -R ug+w /webapp/storage
+RUN apk --no-cache add postgresql-dev
+RUN docker-php-ext-install pdo pdo_pgsql
 ```
 
 ## Erro de permissão de escrita
