@@ -3,7 +3,7 @@
 Docker-compose para containerizar uma aplicação laravel
 
 ```yml
-    version: "3.9"
+version: "3.9"
 
 services:
     db:    
@@ -49,7 +49,7 @@ services:
 Caso esteja dando o erro de permissão de escrita, basta rodar os comandos (ou no CLI ou na montagem da imagem), dentro da pasta do laravel, na imagem do PHP:
 
 ```sh
-chown -R yourusername:www-data storage
+chown -R $(whoami):www-data storage
 sudo chmod -R ug+w storage
 php artisan cache:clear
 composer dump-autoload
