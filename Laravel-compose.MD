@@ -77,7 +77,6 @@ docker-php-ext-install pdo pdo_pgsql
 
 ## CLI com o container em execução
 Para abrir uma "interface CLI" com o container já aberto, por exemplo, para rodar a instalação das extensões no container do PHP:
-```
-sh
+```sh
 docker exec -it docker-release_php_1 sh
 ```
