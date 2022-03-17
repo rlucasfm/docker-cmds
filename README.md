@@ -61,6 +61,16 @@ Iremos executar o comando de criar um projeto django a partir do docker.
 docker-compose run web django-admin startproject composeexample .
 ```
 
+## Executando uma CLI dentro do container
+Para abrir um CLI dentro do container e executar comandos dentro do ambiente.
+Primeiramente, encontrar o ID do container desejado.
+````bash
+docker ps
+```
+```bash
+docker exec -it CONTAINER_ID /bin/bash
+```
+
 ## Executar o docker-composer
 Aqui iremos executar os serviços descritos no .yml
 
